@@ -1,1 +1,16 @@
-Thi sis workingf
+<main id="milkshake-index">
+  <div class="banner-img"></div>
+  <h1>All Milkshakes</h1>
+  <form action="">
+    <input type="search" name="searcg">
+  </form>
+  <section>
+    <% @milkshakes.each do |milkshake| %>
+      <div>
+        <img src="<%= milkshake.image.url %>" alt="">
+        <h3><%= milkshake.name %></h3> 
+        <p> <%= number_to_currency(milkshake.price / 100.0) %> </p> 
+      </div>
+    <% end %>
+  </section>
+</main>
