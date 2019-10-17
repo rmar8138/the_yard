@@ -1,16 +1,16 @@
 ingredients = [
-  { name: "milk", kind: "base" },
-  { name: "soy", kind: "base"},
-  { name: "almond", kind: "base"},
-  { name: "coconut", kind: "base"},
-  { name: "chocolate", kind: "flavour"},
-  { name: "vanilla", kind: "flavour"},
-  { name: "strawberry", kind: "flavour"},
-  { name: "banana", kind: "flavour"},
-  { name: "sprinkles", kind: "topping"},
-  { name: "fudge", kind: "topping"},
-  { name: "waffer", kind: "topping"},
-  { name: "m&m", kind: "topping"}
+  { name: "milk",       kind: "base" },
+  { name: "soy",        kind: "base" },
+  { name: "almond",     kind: "base" },
+  { name: "coconut",    kind: "base" },
+  { name: "chocolate",  kind: "flavour" },
+  { name: "vanilla",    kind: "flavour" },
+  { name: "strawberry", kind: "flavour" },
+  { name: "banana",     kind: "flavour" },
+  { name: "sprinkles",  kind: "topping" },
+  { name: "fudge",      kind: "topping" },
+  { name: "waffer",     kind: "topping" },
+  { name: "m&m",        kind: "topping" }
 ]
 
 if Ingredient.count == 0 
