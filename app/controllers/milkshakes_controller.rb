@@ -16,8 +16,13 @@ class MilkshakesController < ApplicationController
   end
 
   def create
-    # @milkshake = milkshake_params
-    # Milkshake.create(@milkshake)
+     @milkshake = Milkshake.create(milkshake_params)
+
+     if @milkshake.errors.any?
+      render "new"
+     else
+      redirect_to milkshake_path(@milkshake)
+     end
   end
 
   private

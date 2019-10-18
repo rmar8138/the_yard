@@ -1,5 +1,13 @@
 <h1>Create Milkshake</h1>
 
+<% if @milkshake.errors.any? %>
+  <% @milkshake.errors.full_messages.each do |error| %>
+    <p>
+      <%= error %>
+    </p>
+  <% end %>
+<% end %>
+
 <%= form_with model: @milkshake, local: true do |form| %>
   <div>
     <%= form.label :name %>
