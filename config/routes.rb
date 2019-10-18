@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "/milkshakes", to: "milkshakes#index", as: "milkshakes"
+  post "/milkshakes", to: "milkshakes#create"
+  get "/milkshakes/new", to: "milkshakes#new", as: "new_milkshake"
+  get "/milkshakes/:id", to: "milkshakes#show", as: "milkshake"
 end
