@@ -16,7 +16,9 @@ ingredients = [
 if Ingredient.count == 0 
     for ingredient in ingredients
         ingredient = Ingredient.create(ingredient)
-        ingredient.create_image(url: Faker::LoremPixel.image + "?random=" + rand(1..1000).to_s)
+        # ingredient.create_image(url: Faker::LoremPixel.image + "?random=" + rand(1..1000).to_s)
+        temp_ingredient_pic = Down.download(Faker::LoremPixel.image + "?random=" + rand(1..1000).to_s)
+        ingredient.pic.attach(io: temp_ingredient_pic, filename: File.basename(temp_ingredient_pic.path))
         puts "created ingredient #{ingredient.name}"
     end
 end
@@ -25,14 +27,16 @@ base_ids = Ingredient.where(kind: "base").pluck(:id)
 flavour_ids = Ingredient.where(kind: "flavour").pluck(:id)
 topping_ids = Ingredient.where(kind: "topping").pluck(:id)
 
-for i in 1..50
+for i in 1..20
     milkshake = Milkshake.create(
         price: rand(500..1000),
         name: Faker::Dessert.topping,
         description: Faker::Lorem.paragraph
     )
 
-    milkshake.create_image(url: Faker::LoremPixel.image + "?random=" + rand(1..1000).to_s)
+    # milkshake.create_image(url: Faker::LoremPixel.image + "?random=" + rand(1..1000).to_s)
+    temp_milkshake_pic = Down.download(Faker::LoremPixel.image + "?random=" + rand(1..1000).to_s)
+    milkshake.pic.attach(io: temp_milkshake_pic, filename: File.basename(temp_milkshake_pic.path))
 
     puts "created milkshake #{milkshake.name}"
 
