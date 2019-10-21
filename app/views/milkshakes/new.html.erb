@@ -21,5 +21,9 @@
     <%= form.label :price, "Price (in cents)" %>
     <%= form.number_field :price, min: 0 %>
   </div>
+  <div>
+    <%= form.label :pic %>
+    <%= form.file_field :pic, accept: "image/png,image/gif,image/jpeg,image/jpg" %>
+  </div>
   <%= form.submit %>
 <% end %>
