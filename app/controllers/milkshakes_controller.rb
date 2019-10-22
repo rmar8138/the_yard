@@ -1,4 +1,6 @@
 class MilkshakesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     if params[:search] && !params[:search].empty?
       @milkshakes = Milkshake.where(name: params[:search])
@@ -13,12 +15,14 @@ class MilkshakesController < ApplicationController
 
   def new
     @milkshake = Milkshake.new
+    @ingredients = Ingredient.all
   end
 
   def create
-     @milkshake = Milkshake.create(milkshake_params)
+     @milkshake = current_user.milkshakes.create(milkshake_params)
 
      if @milkshake.errors.any?
+      @ingredients = Ingredient.all
       render "new"
      else
       redirect_to milkshake_path(@milkshake)
@@ -28,6 +32,6 @@ class MilkshakesController < ApplicationController
   private
 
   def milkshake_params
-    params.require(:milkshake).permit(:name, :description, :price, :pic)
+    params.require(:milkshake).permit(:name, :description, :price, :pic, ingredient_ids: [])
   end
 end
