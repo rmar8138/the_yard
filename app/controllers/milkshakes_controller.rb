@@ -29,6 +29,10 @@ class MilkshakesController < ApplicationController
      end
   end
 
+  def edit
+    @milkshake = Milkshake.find(params[:id])
+  end
+
   private
 
   def milkshake_params
