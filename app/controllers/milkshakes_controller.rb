@@ -35,6 +35,7 @@ class MilkshakesController < ApplicationController
     )
 
     @session_id = session.id
+    @public_key = Rails.application.credentials.dig(:stripe, :public_key)
   end
 
   def new
